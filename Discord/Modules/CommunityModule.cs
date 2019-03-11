@@ -21,11 +21,19 @@ namespace Discord.Modules
         [Command("findmember")]
         [Summary("Znajduje użytkownika forum po jego ID i wyświetla detale jego konta.")]
         [RequireContext(ContextType.Guild)]
-        [RequireUserPermission(GuildPermission.ManageMessages)]
         // ReSharper disable once UnusedMember.Global
         public async Task PruneAsync(int memberId)
         {
             await ReplyAsync(memberId.ToString());
+        }
+        
+        [Command("findmember")]
+        [Summary("Znajduje użytkownika forum po jego nazwie i wyświetla detale jego konta.")]
+        [RequireContext(ContextType.Guild)]
+        // ReSharper disable once UnusedMember.Global
+        public async Task PruneAsync(string memberName)
+        {
+            await ReplyAsync(memberName);
         }
     }
 }
