@@ -2,7 +2,6 @@
 using System.IO;
 using System.Threading.Tasks;
 using Discord.Commands;
-using Discord.Rest;
 using Discord.WebSocket;
 
 namespace Discord.Services
@@ -12,7 +11,8 @@ namespace Discord.Services
         private string LogDirectory { get; }
         private string LogFile => Path.Combine(LogDirectory, $"{DateTime.UtcNow:yyyy-MM-dd}.log");
 
-        public LoggingService(BaseDiscordClient discord, CommandService commands)
+        // ReSharper disable once SuggestBaseTypeForParameter
+        public LoggingService(DiscordSocketClient discord, CommandService commands)
         {
             LogDirectory = Path.Combine(AppContext.BaseDirectory, "logs");
 
