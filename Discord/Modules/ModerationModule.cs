@@ -21,6 +21,7 @@ namespace Discord.Modules
         [Command("prune")]
         [Summary("Usuwa podaną ilość wiadomości z kanału.")]
         [RequireContext(ContextType.Guild)]
+        [RequireUserPermission(GuildPermission.ManageMessages)]
         // ReSharper disable once UnusedMember.Global
         public async Task PruneAsync(int howMany)
         {
