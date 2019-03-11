@@ -41,7 +41,9 @@ namespace Discord.Modules
                 {
                     var result = await cmd.CheckPreconditionsAsync(Context);
                     if (result.IsSuccess)
-                        description += $"{prefix}{cmd.Aliases.First()}\n";
+                        description += $"{prefix}{cmd.Aliases.First()} " +
+                                       $"{string.Join(" ", cmd.Parameters.Select(p => "[" + p.Name + "]"))}" +
+                                       $"\n";
                 }
                 
                 if (!string.IsNullOrWhiteSpace(description))
@@ -86,7 +88,7 @@ namespace Discord.Modules
                 builder.AddField(x =>
                 {
                     x.Name = string.Join(", ", cmd.Aliases);
-                    x.Value = $"Użycie: {prefix}{command} " +
+                    x.Value = $"Wariant: {prefix}{command} " +
                               $"{string.Join(" ", cmd.Parameters.Select(p => "[" + p.Name + "]"))}\n" + 
                               $"Opis: {cmd.Summary}";
                     x.IsInline = false;
