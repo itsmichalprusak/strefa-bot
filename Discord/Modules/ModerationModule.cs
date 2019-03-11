@@ -31,7 +31,7 @@ namespace Discord.Modules
             var confirmation = await ReplyAsync("", false, 
                 Embeds.Ok($"Usunąłem `{howMany}` wiadomości z tego kanału."));
             
-            await Task.Delay(2000);
+            await Task.Delay(2750);
             await confirmation.DeleteAsync();
         }
     }
