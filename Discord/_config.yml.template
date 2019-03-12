@@ -1,3 +1,5 @@
 ﻿prefix: "!"
+urls:
+    apiBase: "Uzupełnij adres API IPS Community"
 tokens:
     discord: "Uzupełnij token Discord"

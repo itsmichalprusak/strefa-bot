@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Discord.Commands;
 using Discord.Services;
@@ -11,6 +12,7 @@ namespace Discord
     public class Startup
     {
         private IConfigurationRoot Configuration { get; }
+        private static readonly HttpClient HttpClient = new HttpClient();
 
         public Startup(string[] args)
         {
@@ -42,19 +44,20 @@ namespace Discord
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(new DiscordSocketClient(new DiscordSocketConfig
-            {
-                LogLevel = LogSeverity.Verbose,
-                MessageCacheSize = 1000
-            }))
-            .AddSingleton(new CommandService(new CommandServiceConfig
-            {
-                LogLevel = LogSeverity.Verbose,
-                DefaultRunMode = RunMode.Async,
-            }))
-            .AddSingleton<CommandHandler>()
-            .AddSingleton<StartupService>()
-            .AddSingleton<LoggingService>()
-            .AddSingleton(Configuration);
+                {
+                    LogLevel = LogSeverity.Verbose,
+                    MessageCacheSize = 1000
+                }))
+                .AddSingleton(new CommandService(new CommandServiceConfig
+                {
+                    LogLevel = LogSeverity.Verbose,
+                    DefaultRunMode = RunMode.Async,
+                }))
+                .AddSingleton<CommandHandler>()
+                .AddSingleton<StartupService>()
+                .AddSingleton<LoggingService>()
+                .AddSingleton(Configuration)
+                .AddSingleton(HttpClient);
         }
     }
 }
