@@ -27,7 +27,7 @@ namespace Discord.Modules
             var prefix = _config["prefix"];
             var builder = new EmbedBuilder()
             {
-                Color = new Color(114, 137, 218),
+                Color = new Color(255, 109, 0),
                 Description = "Poniżej znajdziesz listę komend, których możesz użyć.\n" +
                               $"Wpisz `{prefix}help [komenda]`, by uzyskać pomoc nt. konkretnej komendy."
             };
@@ -75,7 +75,7 @@ namespace Discord.Modules
 
             var builder = new EmbedBuilder()
             {
-                Color = new Color(114, 137, 218),
+                Color = new Color(255, 109, 0),
                 Description = $"Pomoc dla komendy `{command}`:"
             };
 
