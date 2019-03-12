@@ -22,7 +22,7 @@ namespace Discord.Modules
         [Summary("Znajduje użytkownika forum po jego ID i wyświetla detale jego konta.")]
         [RequireContext(ContextType.Guild)]
         // ReSharper disable once UnusedMember.Global
-        public async Task PruneAsync(int memberId)
+        public async Task FindMemberAsync(int memberId)
         {
             await ReplyAsync(memberId.ToString());
         }
@@ -31,7 +31,7 @@ namespace Discord.Modules
         [Summary("Znajduje użytkownika forum po jego nazwie i wyświetla detale jego konta.")]
         [RequireContext(ContextType.Guild)]
         // ReSharper disable once UnusedMember.Global
-        public async Task PruneAsync(string memberName)
+        public async Task FindMemberAsync(string memberName)
         {
             await ReplyAsync(memberName);
         }
