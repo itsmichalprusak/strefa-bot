@@ -21,6 +21,7 @@ namespace Discord.Modules
 
         [Command("help")]
         [Summary("Pokazuje ogólną wiadomość pomocy.")]
+        [RequireUserPermission(GuildPermission.Administrator)]
         // ReSharper disable once UnusedMember.Global
         public async Task HelpAsync()
         {
@@ -62,6 +63,7 @@ namespace Discord.Modules
 
         [Command("help")]
         [Summary("Pokazuje wiadomość pomocy dla konkretnej komendy.")]
+        [RequireUserPermission(GuildPermission.Administrator)]
         // ReSharper disable once UnusedMember.Global
         public async Task HelpAsync(string command)
         {
